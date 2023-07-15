@@ -1,1 +1,11 @@
+name: GitactionDemo
+on: push
+ 
 
+jobs: 
+  Example_job:
+    name: "job"
+    runs-on: ubuntu-latest
+    steps: 
+    - run: echo "this test"
+    

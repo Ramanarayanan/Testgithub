@@ -1,6 +1,7 @@
 name: GitactionDemo
 on: push
-  workflow_dispath:
+   branches: [ "main" ]
+workflow_dispath:
 jobs: 
   Example_job:
   name: "job"

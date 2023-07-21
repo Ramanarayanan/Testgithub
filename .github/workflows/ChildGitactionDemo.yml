@@ -6,9 +6,11 @@ on:
 jobs: 
   tests:
     uses: ./.github/workflows/GitactionDemo.yml
+  test2:
+    uses: ./.github/workflows/test2.yml
   deploy:
     name: deploy
-    needs: [tests] 
+    needs: [tests,test2] 
     runs-on: ubuntu-latest
     steps: 
     - run: echo "this second test"

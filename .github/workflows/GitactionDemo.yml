@@ -8,5 +8,5 @@ jobs:
     name: "job"
     runs-on: ubuntu-latest
     steps: 
-    - run: echo "this test"
+    - run: echo "this parent test"
     

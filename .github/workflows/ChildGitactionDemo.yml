@@ -7,7 +7,7 @@ jobs:
   tests:
     uses: ./.github/workflows/GitactionDemo.yml
   test2:
-    uses: ./.github/workflows/test2.yml
+    uses: ./.github/workflows/Test2.yml
   deploy:
     name: deploy
     needs: [tests,test2] 

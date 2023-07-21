@@ -8,10 +8,11 @@ jobs:
     name: "job"
     runs-on: ubuntu-latest
     steps: 
-    - name: Set pipeline variable
-      id: set_pipeline_variable
-      shell: pwsh
-      run: |
-        $content = Get-Content ./path/to/file.json
-        Write-Output ::set-output name=jsonData::$content
+    - run: echo "this TEST1 test"
+    #- name: Set pipeline variable
+     # id: set_pipeline_variable
+      #shell: pwsh
+     # run: |
+      #  $content = Get-Content ./path/to/file.json
+      #  Write-Output ::set-output name=jsonData::$content
     

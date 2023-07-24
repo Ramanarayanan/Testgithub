@@ -8,7 +8,20 @@ check_workflow_status() {
 }
 
 # Array containing all dependent workflow names
-workflow_names=("Build_NUnitTests.yml" "Build_Manual.yml" "New_Build_Deployment.ym") # Add other workflow names as needed
+workflow_names=("Build_NUnitTests.yml" "Build_Manual.yml" "New_Build_Deployment.yml") # Add other workflow names as needed
+
+# Function to trigger the dependent workflows
+trigger_dependent_workflows() {
+  for workflow_name in "${workflow_names[@]}"; do
+    curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+      -H "Accept: application/vnd.github.v3+json" \
+      "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/$workflow_name/dispatches" \
+      -d '{"ref": "main"}'
+  done
+}
+
+# Trigger the dependent workflows
+trigger_dependent_workflows
 
 # Loop until all dependent workflows have succeeded
 while true; do

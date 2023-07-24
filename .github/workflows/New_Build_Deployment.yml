@@ -15,7 +15,7 @@ jobs:
     uses: ./.github/workflows/Build_Dev.yml
   New_Build_Deployment:
     needs:       
-      - Build_NUnitTests
+      - Build_Dev
     runs-on: ubuntu-latest
     steps: 
     - run: echo "this New_Build_Deployment test"

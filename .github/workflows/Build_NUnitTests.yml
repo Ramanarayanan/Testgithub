@@ -7,18 +7,6 @@ on:
   workflow_call: {}
 jobs:
   Build_NUnitTests:
-    needs:
-      - get-cluster
-    runs-on: '${{needs.get-cluster.outputs.cluster}}'
-    steps: []
-  get-cluster:
-    runs-on:
-      - self-hosted
-      - linux
-    outputs:
-      cluster: ${{ steps.get-cluster-step.outputs.cluster}}
-    steps:
-      - id: get-cluster-step
-        run: |-
-          echo - n "::set-output name=cluster::cluster="; echo 
-          ${{secrets.CLUSTER_NAME}} | base64 --decode
+    runs-on: ubuntu-latest
+    steps: 
+    - run: echo "this second test"

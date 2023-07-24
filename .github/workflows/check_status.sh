@@ -8,7 +8,7 @@ check_job_status() {
 }
 
 # Array containing all job names
-job_names=("job1" "job2" "job3") # Add other job names as needed
+job_names=("Build_NUnitTests" "Build_Manual" "New_Build_Deployment") 
 
 # Loop until all jobs have succeeded
 while true; do

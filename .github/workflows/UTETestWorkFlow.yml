@@ -18,5 +18,7 @@ jobs:
       - name: Run custom script
         run: |
             chmod +x ./.github/workflows/check_status.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: All jobs completed
         run: echo "All jobs completed sucessfully"

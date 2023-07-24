@@ -20,4 +20,4 @@ jobs:
       - Build_Manual
     runs-on: ubuntu-latest
     steps: 
-    - run: echo "this second test"
+    - run: bash ./test.sh

@@ -8,7 +8,7 @@ check_workflow_status() {
 }
 
 # Array containing all dependent workflow names
-workflow_names=("workflow1.yml" "workflow2.yml") # Add other workflow names as needed
+workflow_names=("Build_NUnitTests.yml" "Build_Manual.yml" "New_Build_Deployment.ym") # Add other workflow names as needed
 
 # Loop until all dependent workflows have succeeded
 while true; do

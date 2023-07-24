@@ -6,13 +6,15 @@ on:
   workflow_dispatch: {}
   workflow_call: {}
 jobs:
-  Build_Dev:
-    uses: ./.github/workflows/Build_Dev.yml
+ 
   Build_NUnitTests:
     uses: ./.github/workflows/Build_NUnitTests.yml
+  Build_Dev:
+    needs:
+      - Build_NUnitTests
+    uses: ./.github/workflows/Build_Dev.yml
   New_Build_Deployment:
-    needs:      
-      - Build_Dev
+    needs:       
       - Build_NUnitTests
     runs-on: ubuntu-latest
     steps: 

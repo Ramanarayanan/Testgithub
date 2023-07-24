@@ -15,7 +15,6 @@ jobs:
   New_Build_Deployment:
     uses: ./.github/workflows/New_Build_Deployment.yml
   check_all_jobs_status:
-    needs: [Build_NUnitTests, Build_Manual, New_Build_Deployment] 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

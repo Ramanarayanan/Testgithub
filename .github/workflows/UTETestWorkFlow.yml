@@ -18,6 +18,6 @@ jobs:
 
       - name: Run custom script
         run: |
-           ./.github/workflows/check_status.sh
+            chmod +x ./.github/workflows/check_status.sh
       - name: All jobs completed
         run: echo "All jobs completed sucessfully"

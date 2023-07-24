@@ -1,0 +1,13 @@
+name: Build_Manual
+on:
+  push:
+    branches:
+      - refs/heads/main
+  workflow_dispatch: {}
+  workflow_call: {}
+jobs:
+  Build_Manual:
+    runs-on: ubuntu-latest
+    steps: 
+    - run: echo "this Build_Manual test"
+ 

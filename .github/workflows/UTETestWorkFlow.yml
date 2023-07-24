@@ -1,6 +1,11 @@
 name: UTETestWorkFlow
 
-on: [push]
+on:
+  push:
+    branches:
+      - refs/heads/main
+  workflow_dispatch: {}
+
 
 jobs:
   Build_NUnitTests:

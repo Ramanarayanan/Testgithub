@@ -1,0 +1,23 @@
+name: Build_Dev
+on:
+  push:
+    branches:
+      - refs/heads/main
+  workflow_dispatch: {}
+  workflow_call: {}
+env:
+  Test_Config_Param: test_config
+  test_env: test_env
+  test_system: test_system
+jobs:
+  Build_NUnitTests:
+    uses: ./.github/workflows/Build_NUnitTests.yml
+  Build_Manual:
+    uses: ./.github/workflows/Build_Manual.yml
+  Build_Dev:
+    needs:
+      - Build_NUnitTests
+      - Build_Manual
+    runs-on: ubuntu-latest
+    steps: 
+    - run: echo "this second test"

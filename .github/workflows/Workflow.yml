@@ -1,9 +1,11 @@
-ame: Main Workflow
+name: Main Workflow
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:    
+  
 
 jobs:
   main_job:
@@ -13,6 +15,4 @@ jobs:
       - name: Step 1
         run: echo "Step 1 executed in the main job."
 
-      - name: Include Reusable Steps
-        uses: ./.github/workflows/Build_NUnitTests.yml
-        
+      

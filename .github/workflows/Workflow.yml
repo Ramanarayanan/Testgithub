@@ -13,14 +13,13 @@ on:
 jobs:
   main_job:
      if: ${{ github.event_name == 'workflow_dispatch' }}
-     uses: ./.github/workflows/testScript.yml
+     uses: ./.github/workflows/Build_NUnitTests.yml
      
     
    
     
   second_job:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest    
     steps: 
     - run: echo "this second job test"
    

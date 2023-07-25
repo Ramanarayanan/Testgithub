@@ -15,8 +15,10 @@ jobs:
    if: ${{ github.event_name == 'workflow_dispatch' }}
 
    steps:
+   
    - name: Step 1
-     run: echo "Step 1 executed in Manual Dispatch Workflow."
+     uses: actions/checkout@3
+   
 
    - name: Trigger Reusable Workflow (Manual Dispatch)
        

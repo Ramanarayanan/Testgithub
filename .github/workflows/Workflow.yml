@@ -9,7 +9,8 @@ on:
 
 jobs:
   main_job:
-    runs-on: ubuntu-latest   
+    runs-on: ubuntu-latest 
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     steps:
       - name: Step 1
         uses: actions/checkout@v3
@@ -17,6 +18,11 @@ jobs:
           repository: ${{github.repository}}
       - name: Include Reusable Steps        
         uses: ./.github/workflows/Build_NUnitTests.yml@main
+  second_job:
+    runs-on: ubuntu-latest
+    steps: 
+    - run: echo "this Skipped reusable test test"
+   
         
 
       

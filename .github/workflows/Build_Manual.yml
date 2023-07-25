@@ -13,9 +13,8 @@ jobs:
         max-attempts: [1,2,3]
     steps:
       - name: step1
-        if: ${{ job.status!= 'sucess' && matrix.max-attempts>1}}       
-    
-      - run: |
+        if: ${{ job.status != 'success' && matrix.max-attempts > 1 }}   
+        run: |
            echo "this Build_Manual test"
            exit 1
  

@@ -3,7 +3,11 @@ on:
   push:
     branches:
       - refs/heads/main
-  workflow_dispatch: {}
+  workflow_dispatch: 
+    inputs:
+      branch:  # Optional input to specify the branch (you can customize this as needed)
+        description: 'Branch to run the workflow on'
+        required: false
   workflow_call: {}
 jobs:
   Build_NUnitTests:

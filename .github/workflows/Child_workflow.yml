@@ -32,6 +32,8 @@ jobs:
           fi
 
       - name: Wait for Workflow to Complete
+         workflow_runid=${{ steps.trigger_dispatch.outputs.workflow_id }}
+         echo "Workflow workflow_runid:$workflow_runid
         if: steps.trigger_dispatch.outputs.workflow_id != ''
         run: |
           # Set the GITHUB_TOKEN environment variable to your repository's Personal Access Token or a token with workflow scope.

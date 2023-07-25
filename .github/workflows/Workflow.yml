@@ -20,9 +20,10 @@ jobs:
     
   second_job:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     needs:
      - main_job
-    if: needs.main_job.result == 'success' || needs.main_job.result == 'skipped'
+  
     steps: 
     - run: echo "this Skipped reusable test test"
    

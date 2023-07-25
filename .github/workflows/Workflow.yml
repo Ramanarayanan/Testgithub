@@ -12,15 +12,12 @@ on:
 
 jobs:
   main_job:
-    runs-on: ubuntu-latest 
-    if: ${{ github.event_name == 'workflow_dispatch' }}
-    steps:
-      - name: Step 1
-        uses: actions/checkout@v3
-        with:
-          repository: ${{github.repository}}
-      - name: Include Reusable Steps        
-        uses: ./.github/workflows/Build_NUnitTests.yml@main
+     if: ${{ github.event_name == 'workflow_dispatch' }}
+     uses: ./.github/workflows/Build_NUnitTests.yml
+     
+    
+   
+    
   second_job:
     runs-on: ubuntu-latest
     steps: 

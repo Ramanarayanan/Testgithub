@@ -27,6 +27,7 @@ jobs:
               -d "{\"ref\":\"main\",\"inputs\":{\"branch\":\"main\"}}")
             echo "$response"
             workflow_id=$(echo "$response" | jq -r '.id')
+            echo $workflow_id
             echo "::set-output name=workflow_id::$workflow_id"
           fi
 

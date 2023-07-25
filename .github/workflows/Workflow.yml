@@ -1,19 +1,18 @@
-name: Main Workflow
+ame: Main Workflow
 
 on:
   push:
-  
     branches:
       - main
- 
 
 jobs:
-  build:
+  main_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Step 1
+        run: echo "Step 1 executed in the main job."
 
-      - name: Run Reusable Steps
-        uses:  Ramanarayanan/Testgithub/.github/workflows/Build_NUnitTests.yml@main
+      - name: Include Reusable Steps
+        uses: ./.github/workflows/Build_NUnitTests.yml
+        

@@ -17,7 +17,7 @@ jobs:
    steps:
    
    - name: Step 1
-     uses: actions/checkout@3
+     uses: actions/checkout@v3
    
 
    - name: Trigger Reusable Workflow (Manual Dispatch)

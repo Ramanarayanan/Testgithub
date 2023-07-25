@@ -21,7 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo 'The triggering workflow passed'
+      - run: |
+         echo ${{ github.event}}
+         echo "The first echo completed"
+         echo ${{ github.event.workflow_run}}
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}

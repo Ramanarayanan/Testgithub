@@ -8,12 +8,11 @@ on:
   workflow_run:
     workflows: [Build_NUnitTests]
     types: [completed]
-  
-
+    
 jobs:
   main_job:
      if: ${{ github.event_name == 'workflow_dispatch' }}
-     uses: ./.github/workflows/testScript.yml
+     uses: ./.github/workflows/Build_NUnitTests.yml
      
     
    
@@ -22,20 +21,20 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: |
-         echo ${{ toJson(github.event)}}
+         echo ${{ toJson(github.event) }}
          echo "The first echo completed"
-         echo ${{ toJson(github.event.workflow_run)}}
+         echo ${{ toJson(github.event.workflow_run) }}
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - run: echo 'The triggering workflow failed' 
   second_job:
+      needs: [main_job]
+      runs-on: ubuntu-latest
      
-     runs-on: ubuntu-latest
-     
-     steps: 
-     - run: echo "this second job test"
+      steps: 
+      - run: echo "this second job test"
    
         
 

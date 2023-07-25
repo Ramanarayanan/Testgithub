@@ -30,7 +30,7 @@ jobs:
   second_job:
      
      runs-on: ubuntu-latest
-     if: ${{ needs.main_job.outputs.job1-status == 'success' || needs.main_job.conclusion == 'skipped' }}
+     
      steps: 
      - run: echo "this second job test"
    

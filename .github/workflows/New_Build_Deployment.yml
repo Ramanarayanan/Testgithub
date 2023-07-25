@@ -20,7 +20,7 @@ jobs:
 
    - name: Trigger Reusable Workflow (Manual Dispatch)
        
-     uses: ./.github/workflows/Build_NUnitTests.yml
+     uses: ./.github/workflows/Build_NUnitTests.yml@main
   Build_Dev:
    runs-on: ubuntu-latest
    if: ${{ github.event_name == 'workflow_dispatch' }}

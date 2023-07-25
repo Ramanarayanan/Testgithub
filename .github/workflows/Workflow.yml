@@ -13,19 +13,16 @@ on:
 jobs:
   main_job:
      if: ${{ github.event_name == 'workflow_dispatch' }}
-     uses: ./.github/workflows/Build_NUnitTests.yml
+     uses: ./.github/workflows/testScript.yml
      
     
    
     
   second_job:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' }}
-    needs:
-     - main_job
-  
+    
     steps: 
-    - run: echo "this Skipped reusable test test"
+    - run: echo "this second job test"
    
         
 

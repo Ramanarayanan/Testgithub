@@ -14,5 +14,8 @@ jobs:
     steps:
       - name: Step 1
         run: echo "Step 1 executed in the main job."
+      - name: Include Reusable Steps
+        uses: ./.github/workflows/Build_NUnitTests.yml
+        
 
       

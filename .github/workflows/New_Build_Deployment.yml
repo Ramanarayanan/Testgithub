@@ -4,15 +4,35 @@ on:
     branches:
       - refs/heads/main
   workflow_dispatch: {}
+  workflow_run:
+    workflows: [Build_Dev]
+    types: [completed]
   workflow_call: {}
 jobs:
  
   Build_NUnitTests:
-    uses: ./.github/workflows/Build_NUnitTests.yml
+   runs-on: ubuntu-latest
+   if: ${{ github.event_name == 'workflow_dispatch' }}
+
+   steps:
+   - name: Step 1
+     run: echo "Step 1 executed in Manual Dispatch Workflow."
+
+   - name: Trigger Reusable Workflow (Manual Dispatch)
+       
+     uses: ./.github/workflows/Build_NUnitTests.yml
   Build_Dev:
-    needs:
+   runs-on: ubuntu-latest
+   if: ${{ github.event_name == 'workflow_dispatch' }}
+   needs:
       - Build_NUnitTests
-    uses: ./.github/workflows/Build_Dev.yml
+   steps:
+   - name: Step 1
+     run: echo "Step 1 executed in Manual Dispatch Workflow."
+
+   - name: Trigger Reusable Workflow (Manual Dispatch)
+  
+     uses: ./.github/workflows/Build_Dev.yml
   New_Build_Deployment:
     needs:       
       - Build_Dev

@@ -14,8 +14,10 @@ jobs:
     steps:
       - name: Step 1
         uses: actions/checkout@v3
+        with:
+          repository: ${{github.repository}}
       - name: Include Reusable Steps        
-        uses: ./.github/workflows/Build_NUnitTests.yml
+        uses: ./.github/workflows/Build_NUnitTests.yml@main
         
 
       

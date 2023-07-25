@@ -28,9 +28,11 @@ jobs:
     steps:
       - run: echo 'The triggering workflow failed' 
   second_job:
-    runs-on: ubuntu-latest    
-    steps: 
-    - run: echo "this second job test"
+     needs: main_job
+     runs-on: ubuntu-latest
+     if: ${{ needs.job1.outputs.job1-status == 'success' || needs.job1.conclusion == 'skipped' }}
+     steps: 
+     - run: echo "this second job test"
    
         
 

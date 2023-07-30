@@ -1,0 +1,14 @@
+#name: Build_Manual
+on:
+  push:
+    branches:
+      - refs/heads/main
+  workflow_dispatch: {}
+  workflow_call: {}
+jobs:
+  Build_Manual:
+     uses: ./.github/workflows/Build_NUnitTests.yml
+     strategy:
+      matrix:
+        max-attempts: [1,2,3]
+     if: ${{ job.status != 'success' && matrix.max-attempts > 1 }}   

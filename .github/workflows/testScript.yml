@@ -5,6 +5,7 @@ on:
     branches:
       - main  # Adjust the branch name as needed
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   run_script:

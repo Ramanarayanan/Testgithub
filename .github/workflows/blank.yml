@@ -25,3 +25,7 @@ jobs:
           max_attempts: 3
           retry_wait_seconds: 30
           continue_on_error: true
+          shell: cmd
+          command: >-
+           echo "this is
+                 a test"

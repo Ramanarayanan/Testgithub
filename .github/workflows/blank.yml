@@ -1,0 +1,27 @@
+name: Retry Failed Workflow
+
+on:
+  workflow_run:
+    workflows:
+      - Build_NUnitTests
+    types:
+      - completed
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Workflow Conclusion Status
+        run: |
+          if [[ "${{ github.workflow_run.conclusion }}" == "failed" ]]; then
+            echo "Workflow failed, retrying..."
+          else
+            echo "Workflow succeeded, no need to retry."
+            exit 0
+          fi
+      - name: Retry Workflow
+        uses: actions/retry-step@v2
+        with:
+          max_attempts: 3
+          timeout_seconds: 30
+          continue_on_failure: true

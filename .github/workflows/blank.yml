@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check Workflow Conclusion Status
         run: |
-          if [[ "${{ github.event.workflow_run.conclusion }}" == "failed" ]]; then
+          if [[ "${{ github.event.workflow_run.conclusion }}" == "failure" ]]; then
             echo "Workflow failed, retrying..."
           else
             echo "Workflow succeeded, no need to retry."
